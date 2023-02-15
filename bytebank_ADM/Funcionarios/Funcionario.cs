@@ -6,15 +6,25 @@ using System.Threading.Tasks;
 
 namespace bytebank_ADM.Funcionarios
 {
-    public class Funcionario
+    // não podemos colocar objetos diretamente 
+    public abstract class Funcionario
     {
         public string Nome { get; set; }
-        public string Cpf { get; set; }
-        public double Salario { get; set; }
+        public string Cpf { get; private set; }
+        public double Salario { get; protected set; }
+        public static int TotalDeFuncionarios { get; private set; }
 
-        public double GetBonificacao()
+        // esse método será abstrato
+        // toda classe que herde de funcionário tem a obrigação de 
+        // implementar esse comportamento 
+        public abstract double GetBonificacao();
+        public Funcionario(string cpf, double salario)
         {
-            return this.Salario * 0.10;
+            this.Salario = salario; 
+            this.Cpf = cpf; 
+            TotalDeFuncionarios++;   
         }
+        // esse método será abstrato
+        public abstract void AumentarSalario();
     }
 }
