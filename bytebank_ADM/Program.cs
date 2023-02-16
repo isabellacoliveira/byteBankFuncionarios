@@ -1,4 +1,6 @@
 ﻿using bytebank_ADM.Funcionarios;
+using bytebank_ADM.Parceria;
+using bytebank_ADM.SistemaInterno;
 using bytebank_ADM.Utilitario;
 
 #region 
@@ -36,29 +38,65 @@ using bytebank_ADM.Utilitario;
 // Console.WriteLine("O salário do Roberta é " + roberta.Salario); 
 #endregion
 
-void CalcularBonificacao()
-{
-    GerenciadorDeBonificacao gerenciador = new GerenciadorDeBonificacao();
+#region 
+// void CalcularBonificacao()
+// {
+//     GerenciadorDeBonificacao gerenciador = new GerenciadorDeBonificacao();
 
-    Designer isabella = new Designer("1234456");
-    isabella.Nome = "Isabella Oliveira"; 
+//     Designer isabella = new Designer("1234456");
+//     isabella.Nome = "Isabella Oliveira"; 
 
-    Diretor paula = new Diretor("098209123"); 
-    paula.Nome = "Paula Souza"; 
+//     Diretor paula = new Diretor("098209123"); 
+//     paula.Nome = "Paula Souza"; 
 
-    Auxiliar igor = new Auxiliar("123123"); 
-    igor.Nome = "Igor Dias"; 
+//     Auxiliar igor = new Auxiliar("123123"); 
+//     igor.Nome = "Igor Dias"; 
 
-    GerenteDeContas camila = new GerenteDeContas("1871293"); 
-    camila.Nome = "Camila Oliveira"; 
+//     GerenteDeContas camila = new GerenteDeContas("1871293"); 
+//     camila.Nome = "Camila Oliveira"; 
 
-    gerenciador.Registrar(camila); 
-    gerenciador.Registrar(isabella); 
-    gerenciador.Registrar(igor); 
-    gerenciador.Registrar(paula); 
+//     gerenciador.Registrar(camila); 
+//     gerenciador.Registrar(isabella); 
+//     gerenciador.Registrar(igor); 
+//     gerenciador.Registrar(paula); 
 
     // Console.WriteLine("Total de bonificação " + gerenciador.TotalBonificacao);
 
     // Funcionario pedro = new Funcionario("123123", 9000); 
+// }
+#endregion
+
+UsarSistema(); 
+
+void UsarSistema()
+{
+    SistemaInterno sistema = new SistemaInterno(); 
+    Diretor ingrid = new Diretor("238998314"); 
+    ingrid.Nome = "Ingrid Guerra";
+    ingrid.Senha = "123"; 
+
+    GerenteDeContas ursula = new GerenteDeContas("2123123");
+    ursula.Nome = "Ursula Alcântara"; 
+    ursula.Senha = "321"; 
+
+    // henrique e isa não possuem a classe autenticavel para logar no sistema
+    // pois não são diretores ou gerentes de contas
+    // Auxiliar henrique = new Auxiliar("198327"); 
+    // henrique.Nome = "Henrique Paz"; 
+    // henrique.Senha = "123"; 
+
+    // Designer isa = new Designer("12312");
+    // isa.Nome = "Isabella Oliveira"; 
+    // isa.Senha = "1234"; 
+
+    ParceiroComercial caio = new ParceiroComercial();
+    caio.Senha = "123"; 
+
+    sistema.Logar(ingrid, "123"); 
+    sistema.Logar(ursula, "324");
+    sistema.Logar(caio, "123");
+    // sistema.Logar(henrique, "324");
+    // sistema.Logar(isa, "324");
 }
+
 

@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using bytebank_ADM.SistemaInterno;
 
 namespace bytebank_ADM.Funcionarios
 {
-    public class Diretor : Funcionario
+    // vai herdar de funcionario e implementar autenticavel 
+    public class Diretor : FuncionarioAutenticavel
     {
+
         public override double GetBonificacao()
         {
             return this.Salario * 0.5;
         }
-        // assim estou passando o salário diretamente de acordo com o cargo 
         public Diretor(string cpf): base(cpf, 5000)
         {
             Console.WriteLine("Adicionando um diretor");
